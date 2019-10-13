@@ -6,6 +6,6 @@
 
 游戏开始点击“play”，算上屏幕最下面的飞船一共四条命，屏幕中间的分数为历史最高分，屏幕右上角的两个数字分别为当前得分和当前关卡等级，游戏每升一级会相应加快外星人飞船的移动速度。
 
-dist 文件夹中包含打包好的游戏 exe 的执行文件，无需是否安装python都可执行，前提是 dist 文件中的 images 文件不能丢失。
 
-打包使用的是 pyinstaller 模块，游戏的主体执行文件是 alien_invasion.py 文件，可以通过执行此文件来运行游戏。
+打包使用的是 pyinstaller 模块，游戏的主体执行文件是 alien_invasion.py 文件，可以通过在安装python和相关模块后使用命令行执行此文件来运行游戏。
+打包命令：pyinstaller -F -w alien_invasion.py，打包会生成一个dist文件夹包含一个可执行的exe文件，需要将目录的 images 文件夹放入此 dist 的文件夹，才能正常运行游戏
