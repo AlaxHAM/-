@@ -14,7 +14,7 @@ class Scoreboard():
 
         # 显示得分信息时使用的字体设置
         self.text_color = (30, 30, 30)
-        self.font = pygame.font.SysFont('arial', 48)
+        self.font = pygame.font.SysFont('arial', 42)
 
         # 准备包含最高得分和当前分数的图像
         self.prep_score()
@@ -28,12 +28,12 @@ class Scoreboard():
         #rounded_score = int(round(self.stats.score, -1))   # round() 通常让小数精确到小数点后多少位，其中小数位由第二个实参指定
         rounded_score = round(self.stats.score, -1)
         score_str = "{:,}".format(rounded_score)        # 这里是指将分数圆整为10,100,1000的倍数  而且由于2.7版本中round是返回小数值  3的版本则可以省略
-        self.score_image = self.font.render(score_str, True, self.text_color, self.ai_settings.bg_color)
+        self.score_image = self.font.render('score: '+score_str, True, self.text_color, self.ai_settings.bg_color)
 
         # 将得分放在屏幕右上角
         self.score_rect = self.score_image.get_rect()
         self.score_rect.right = self.screen_rect.right - 20
-        self.score_rect.top = 20
+        self.score_rect.top = 12
 
     def prep_high_score(self):
         """将最高得分转换为渲染对象"""
@@ -44,11 +44,11 @@ class Scoreboard():
         # 将最高得分放在屏幕顶部中央
         self.high_score_rect = self.high_score_image.get_rect()
         self.high_score_rect.centerx = self.screen_rect.centerx
-        self.high_score_rect.top = 20
+        self.high_score_rect.top = 12
 
     def prep_level(self):
         """将等级转换为渲染对象"""
-        self.level_image = self.font.render(str(self.stats.level), True, self.text_color, self.ai_settings.bg_color)
+        self.level_image = self.font.render('level: '+str(self.stats.level), True, self.text_color, self.ai_settings.bg_color)
 
         # 将等级放在得分的下方
         self.level_rect = self.level_image.get_rect()
